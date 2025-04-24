@@ -17,7 +17,7 @@ export default function LoginPage() {
               <Brain className="h-8 w-8 text-purple-500" />
             </div>
           </div>
-          <h1 className="text-3xl font-bold tracking-tight text-purple-700">ASPECT</h1>
+          <h1 className="text-3xl font-bold tracking-tight text-purple-700">ASPCT</h1>
           <p className="text-muted-foreground">Ambiente Virtual Gamificado para desenvolvimento cognitivo</p>
         </div>
 
@@ -131,7 +131,7 @@ export default function LoginPage() {
         </Card>
 
         <div className="text-center text-sm text-muted-foreground">
-          <p>© 2025 ASPECT - Todos os direitos reservados</p>
+          <p>© 2025 ASPCT - Todos os direitos reservados</p>
         </div>
       </div>
     </div>
