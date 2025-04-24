@@ -1,103 +1,139 @@
-import Image from "next/image";
+import Link from "next/link"
+import { Brain, Users } from "lucide-react"
 
-export default function Home() {
+import { Button } from "@/components/ui/button"
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+
+export default function LoginPage() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-blue-50 to-purple-50 p-4">
+      <div className="w-full max-w-md space-y-6">
+        <div className="text-center space-y-2">
+          <div className="flex justify-center">
+            <div className="rounded-full bg-purple-100 p-3">
+              <Brain className="h-8 w-8 text-purple-500" />
+            </div>
+          </div>
+          <h1 className="text-3xl font-bold tracking-tight text-purple-700">ASPECT</h1>
+          <p className="text-muted-foreground">Ambiente Virtual Gamificado para desenvolvimento cognitivo</p>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+
+        <Card className="border-2 border-purple-200 shadow-lg">
+          <CardHeader className="space-y-1">
+            <CardTitle className="text-2xl text-center text-purple-700">Acesso ao Sistema</CardTitle>
+            <CardDescription className="text-center">
+              Faça login para acompanhar o desenvolvimento das crianças
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <Tabs defaultValue="responsavel" className="w-full">
+              <TabsList className="grid w-full grid-cols-2 mb-4">
+                <TabsTrigger value="responsavel" className="data-[state=active]:bg-blue-100">
+                  <div className="flex items-center gap-2">
+                    <Users className="h-4 w-4" />
+                    <span>Pais/Responsáveis</span>
+                  </div>
+                </TabsTrigger>
+                <TabsTrigger value="psicologo" className="data-[state=active]:bg-green-100">
+                  <div className="flex items-center gap-2">
+                    <Brain className="h-4 w-4" />
+                    <span>Psicólogos</span>
+                  </div>
+                </TabsTrigger>
+              </TabsList>
+
+              <TabsContent value="responsavel">
+                <div className="space-y-4">
+                  <div className="space-y-2">
+                    <Label htmlFor="responsavel-email" className="text-blue-700">
+                      E-mail
+                    </Label>
+                    <Input
+                      id="responsavel-email"
+                      type="email"
+                      placeholder="Digite seu e-mail"
+                      className="border-2 border-blue-200 h-12 text-lg"
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="responsavel-senha" className="text-blue-700">
+                      Senha
+                    </Label>
+                    <Input
+                      id="responsavel-senha"
+                      type="password"
+                      placeholder="Digite sua senha"
+                      className="border-2 border-blue-200 h-12 text-lg"
+                    />
+                  </div>
+                  <Button className="w-full h-12 text-lg bg-blue-600 hover:bg-blue-700">
+                    Acessar como Responsável
+                  </Button>
+                </div>
+              </TabsContent>
+
+              <TabsContent value="psicologo">
+                <div className="space-y-4">
+                  <div className="space-y-2">
+                    <Label htmlFor="psicologo-email" className="text-green-700">
+                      E-mail Profissional
+                    </Label>
+                    <Input
+                      id="psicologo-email"
+                      type="email"
+                      placeholder="Digite seu e-mail profissional"
+                      className="border-2 border-green-200 h-12 text-lg"
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="psicologo-senha" className="text-green-700">
+                      Senha
+                    </Label>
+                    <Input
+                      id="psicologo-senha"
+                      type="password"
+                      placeholder="Digite sua senha"
+                      className="border-2 border-green-200 h-12 text-lg"
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="psicologo-registro" className="text-green-700">
+                      Registro Profissional (CRP)
+                    </Label>
+                    <Input
+                      id="psicologo-registro"
+                      placeholder="Digite seu número de registro"
+                      className="border-2 border-green-200 h-12 text-lg"
+                    />
+                  </div>
+                  <Button className="w-full h-12 text-lg bg-green-600 hover:bg-green-700">
+                    Acessar como Psicólogo
+                  </Button>
+                </div>
+              </TabsContent>
+            </Tabs>
+          </CardContent>
+          <CardFooter className="flex flex-col space-y-4">
+            <div className="text-center w-full">
+              <Link href="/cadastro" className="text-purple-600 hover:text-purple-800 text-sm">
+                Primeiro acesso? Solicite seu cadastro
+              </Link>
+            </div>
+            <div className="text-center w-full">
+              <Link href="/recuperar-senha" className="text-muted-foreground text-sm hover:text-purple-600">
+                Esqueceu sua senha?
+              </Link>
+            </div>
+          </CardFooter>
+        </Card>
+
+        <div className="text-center text-sm text-muted-foreground">
+          <p>© 2025 ASPECT - Todos os direitos reservados</p>
+        </div>
+      </div>
     </div>
-  );
+  )
 }
